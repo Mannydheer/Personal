@@ -24,6 +24,9 @@ const GlobalStyles = createGlobalStyle`
     }
 
   }
+  html {
+  scroll-behavior: smooth;
+}
 
   html,
   body,

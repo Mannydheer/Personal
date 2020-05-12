@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import AnchorLink from 'react-anchor-link-smooth-scroll'
+
 
 
 const Navbar = () => {
@@ -8,10 +10,13 @@ const Navbar = () => {
         <StyledNav>
             <StyledManny><a href="#home">Manny.</a></StyledManny>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projectLink">Projects</a></li>
-                <li><a href="#Skills">Skills</a></li>
-                <li><a href="#Contact">Contact</a></li>
+                <li><AnchorLink href="#home">Home</AnchorLink></li>
+                <li><AnchorLink href="#projectLink">Projects</AnchorLink></li>
+                <li><AnchorLink href="#Skills">Skills</AnchorLink></li>
+                <li><AnchorLink href="#Contact">Contact</AnchorLink></li>
+                <li><AnchorLink href="#Contact">Contact</AnchorLink></li>
+
+
             </ul>
         </StyledNav>
         <Styledheader id="home">
