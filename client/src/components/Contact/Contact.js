@@ -12,7 +12,9 @@ const Contact = () => {
                 <ReachMeWrapper>
                     <ReachOut>Reach out!</ReachOut>
                     <StyledText>If you'd like to get in touch to work on a project or have any questions, you can reach me by email!</StyledText>
-                    <img src={Email} alt="Email" />
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                        <img src={Email} alt="Email" />
+                    </div>
                 </ReachMeWrapper>
                 <Form />
             </ContactWrapper>
@@ -25,6 +27,8 @@ export default Contact
 const BigWrapper = styled.div`
 width: 80%;
 margin: 0 auto;
+
+
 `
 
 const StyledContactMe = styled.h1`
@@ -50,9 +54,20 @@ margin: 5rem;
 padding: 3rem;
 display: flex;
 
+@media screen and (max-width: 1000px) {
+display: block;
+}
+
+@media screen and (max-width: 600px) {
+}
+
 `
 const ReachOut = styled.div`
 font-size: 3rem;
+@media screen and (max-width: 1000px) {
+text-align: center;
+}
+
 
 `
 const StyledText = styled.div`
@@ -63,13 +78,11 @@ line-height: 2;
 
 const ReachMeWrapper = styled.div`
 width: 100%;
-padding-right:2rem;
+
+
 
 img {
     width: 30%;
-    position: relative;
-    left: 30%;
-    
 }
 
 `

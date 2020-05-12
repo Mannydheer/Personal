@@ -20,10 +20,10 @@ const Navbar = () => {
                 <h3>Based in Montreal, Qc. I have a passion for both front and backend development. Solving Problems and creating beautiful designs.</h3>
             </StyledAbout>
             <SocialMedia>
-                <a href='https://github.com/Mannydheer'>
+                <a href='https://github.com/Mannydheer' target="_blank">
                     <StyledGithub />
                 </a>
-                <a href='https://www.linkedin.com/in/manny-dheer-aa2576141/'>
+                <a href='https://www.linkedin.com/in/manny-dheer/' target="_blank">
                     <StyledLinkedIn />
                 </a>
             </SocialMedia>
@@ -113,8 +113,16 @@ width: 10%;
 justify-content: space-between;
 a {
     color: white;
-
 }
+@media screen and (max-width: 1000px) {
+    margin-top: 5rem;   
+    width: 20%; 
+ }
+ @media screen and (max-width: 800px) {
+    margin-top: 5rem;   
+    width: 30%; 
+ }
+
 
 `
 const StyledGithub = styled(FaGithub)`
@@ -129,8 +137,8 @@ const StyledLinkedIn = styled(FaLinkedin)`
 `
 
 const StyledAbout = styled.div`
-    color: white;
-    width: 50%;
+color: white;
+width: 50%;
 h2 {
     font-size: 5rem;
     border-radius: 25px;
@@ -139,11 +147,9 @@ h3 {
     padding-top: 2rem;
     line-height: 2;
 }
-
-@media screen and (max-width: 1200px) {
-
- }
-
+@media screen and (max-width: 1000px) {
+    width: 100%;               
+}
 `
 const Styledheader = styled.header`
 display: flex;
@@ -151,17 +157,24 @@ justify-content: center;
 align-items: center;
 height: 80vh;
 
-@media screen and (max-width: 768px) {
-display: block;                  
- }
- @media screen and (max-width: 420px) {
-                  
- }
-
-
+@media screen and (max-width: 1000px) {
+margin-top: 10rem;
+flex-flow: column;   
+}
+@media screen and (max-width: 420px) {                  
+}
 `
 const ProfileImg = styled.img`
 height: 40vh;
 border-radius: 25px;
 border: 4px white solid;
+
+@media screen and (max-width: 768px) {
+    height: 30vh;
+           
+ }
+ @media screen and (max-width: 420px) {
+                  
+ }
+
 `

@@ -39,10 +39,6 @@ const Skills = () => {
                     <img src={Css}></img>
                     <img src={Javascript}></img>
                     <img src={MongoDb}></img>
-
-
-
-
                 </Icons>
             </FlexTextIcon>
 
@@ -56,7 +52,7 @@ const Skills = () => {
 export default Skills;
 
 const AboutWrapper = styled.div`
-height: 45vh;
+
 width: 80%;
 margin: 0 auto;
 h1 {
@@ -70,19 +66,27 @@ h1 {
     padding-bottom: 1.5rem;
 
 }
+@media screen and (max-width: 1000px) {
+}
+
+@media screen and (max-width: 600px) {
+}
+
 `
 const TextWrapper = styled.div`
 padding: 3rem;
 width: 50%;
-
-
 h2 {
     font-size: 3rem;
     font-weight: bolder;
 }
-
 p {
     font-size: 1.8rem;
+}
+@media screen and (max-width: 1000px) {
+width: 100%;
+text-align: center;
+
 }
 
 `
@@ -99,18 +103,29 @@ width: 50%;
 display: flex;
 flex-flow: wrap;
 align-items: center;
-
-
 img {
     width: 10rem;
     height: 10rem;
     margin: 2rem;
+}
 
+@media screen and (max-width: 1000px) {
+width: 100%;
+justify-content: space-evenly;
+img {
+    width: 8rem;
+    height: 8rem;
+    margin: 1rem;
+}
 }
 `
 
 const FlexTextIcon = styled.div`
 display: flex;
+@media screen and (max-width: 1000px) {
+display: block;
+
+}
 `
 const StyledReact = styled(FaReact)`
 width: 10rem;

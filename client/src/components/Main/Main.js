@@ -37,15 +37,16 @@ export default Main;
 
 
 const StyledMain = styled.div`
-   display: grid;
-
-    /* grid-template-columns: repeat(auto-fill, minmax(150px, 310px)); */
-    grid-template-columns: auto auto;
-
+display: grid;
+grid-template-columns: auto auto;
     h2 {
         text-align: center;
         font-size:3rem;
     }
+
+@media screen and (max-width: 1000px) {
+grid-template-columns: auto;
+}
 
 `
 const MainWrapper = styled.main`
@@ -58,14 +59,21 @@ h1 {
     text-align: center;
     font-size: 5rem;
     font-weight: 900;
-    padding-top: 3rem;
-    padding-bottom: 1.5rem;
+    padding: 2rem;
 }
 p{
     padding: 1.2rem;
     font-size: 2rem;
     line-height: 2;
 }
+
+@media screen and (max-width: 1000px) {
+h1 {
+    font-size: 3rem;
+    padding: 1.5rem;
+}
+}
+
 `
 
 const StyledH1 = styled.div`
@@ -79,8 +87,4 @@ width: 100%;
 height: 50vh;
 padding: 30px;
 
-&:hover {
-   
-
-}
 `

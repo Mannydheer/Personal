@@ -3,23 +3,24 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
 
   html {
-    font-size: 8px;
     font-family: 'Comfortaa', cursive;
+    font-size: 9px;
+    
   
     @media screen and (max-width: 1200px) {
-      font-size: 15px
+      font-size: 9px
     }
 
     @media screen and (max-width: 1000px) {
-      font-size: 14px
+      font-size: 9px
     }
 
     @media screen and (max-width: 800px) {
-      font-size: 13px
+      font-size: 8px
     }
 
     @media screen and (max-width: 600px) {
-      font-size: 12px
+      font-size: 8px
     }
 
   }

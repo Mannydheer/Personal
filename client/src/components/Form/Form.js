@@ -92,6 +92,8 @@ div textarea  {
     outline: none;
     font-size: 2rem;
     font-family: 'Comfortaa', cursive;
+    border: solid black 1px;
+
 
 }
 div label {
