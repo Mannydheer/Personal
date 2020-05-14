@@ -19,7 +19,7 @@ const Main = () => {
                 <Img src="./seeksport.png"></Img>
                 <a href='https://www.youtube.com/watch?v=aU5c4TsWLIk' target="_blank">View Demo</a>
                 <a href='https://github.com/Mannydheer/Finalproject' target="_blank">View Github</a>
-                <p>Developed as my final project during Concordia bootcamp program, built using MERN stack, a fully responsiveness website application that allows for users to find nearby parks from an address in Quebec and then finding people to play sports with.</p>
+                <p>Developed as my final project during Concordia bootcamp program, built using MERN stack, Socket.Io, a fully responsiveness website application that allows for users to find nearby parks from an address in Quebec and then finding people to play sports with.</p>
                 <p>MERN stack, React, Redux, Node.js, MongoDb, Express, Styled Components, CSS.</p>
 
             </div>
