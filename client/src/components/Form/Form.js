@@ -93,8 +93,6 @@ div textarea  {
     font-size: 2rem;
     font-family: 'Comfortaa', cursive;
     border: solid black 1px;
-
-
 }
 div label {
     text-align: center;
@@ -124,6 +122,14 @@ button {
     }
 }
 
+
+@media screen and (max-width: 768px) {
+width: 100%;
+
+button {
+    
+}
+}
 
 
 `

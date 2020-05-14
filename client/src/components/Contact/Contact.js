@@ -56,9 +56,12 @@ display: flex;
 
 @media screen and (max-width: 1000px) {
 display: block;
+
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
+    margin: 0rem;
+padding: 0rem;
 }
 
 `
@@ -67,6 +70,10 @@ font-size: 3rem;
 @media screen and (max-width: 1000px) {
 text-align: center;
 }
+@media screen and (max-width: 768px) {
+margin-top: 2rem;
+}
+
 
 
 `
@@ -74,6 +81,11 @@ const StyledText = styled.div`
 padding-top: 3rem;
 font-size: 2.5rem;
 line-height: 2;
+@media screen and (max-width: 768px) {
+font-size: 2.2rem;
+
+}
+
 `
 
 const ReachMeWrapper = styled.div`
@@ -83,6 +95,12 @@ width: 100%;
 
 img {
     width: 30%;
+}
+
+@media screen and (max-width: 768px) {
+img {
+    width: 20%;
+}
 }
 
 `
