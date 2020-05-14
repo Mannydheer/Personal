@@ -121,8 +121,6 @@ button {
     &:hover {
         opacity: 0.8;
         cursor: pointer;
-
-        
     }
 }
 
