@@ -6,15 +6,12 @@ import styled from 'styled-components';
 const Main = () => {
 
     return (<MainWrapper>
-            <StyledH1>
-        <h1 id="projectLink">My Recent Projects.</h1>
+        <StyledH1>
+            <h1 id="projectLink">My Recent Projects.</h1>
         </StyledH1>
-        <p>Recent graduate from Concordia Bootcamps. Fell in love with programming and developped skills in React, Node.js, Javascript, HTML5,CSS and MongoDb.
-        Currently I'm looking for new opportunities! Eager to work, learn and continue unfolding my programming passion!
-    
-        </p>
+        <p style={{ fontSize: '2.5rem', fontWeight: 'bold' }}>Recent graduate from Concordia Bootcamps. Fell in love with programming and developped skills in React, Node.js, Javascript, HTML5,CSS and MongoDb.</p>
         <StyledMain>
-        <div>
+            <div>
                 <h2>Seek & Sport</h2>
                 <Img src="./seeksport.png"></Img>
                 <a href='https://www.youtube.com/watch?v=aU5c4TsWLIk' target="_blank">View Demo</a>
@@ -47,7 +44,7 @@ const Main = () => {
                 <p>Developed as a small personal project, built in React, users can pick a character and play against the alien in a game of "tic-tac-toe".</p>
                 <p>React, Styled Components, CSS.</p>
             </div>
-  
+
         </StyledMain>
     </MainWrapper>
     )
@@ -146,7 +143,7 @@ padding: 30px;
 
 
 @media screen and (max-width: 768px) {
-width:350px;
+width:320px;
 height: 350px;
 padding: 20px;
 }

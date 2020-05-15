@@ -21,7 +21,7 @@ const RightNav = ({ setOpen, open }) => {
             <Styledheader id="home">
                 <StyledAbout>
                     <h2>Hi, I'm Manny. I'm a full stack developer. </h2>
-                    <h3>Based in Montreal, Qc. I have a passion for both front and backend development. Solving Problems and creating beautiful designs.</h3>
+                    <h3>Based in Montreal, Qc. I have a passion for both front and backend development. Currently I'm looking for new opportunities! Eager to work, learn and continue unfolding my programming passion! </h3>
                 </StyledAbout>
                 <SocialMedia>
                     <a href='https://github.com/Mannydheer' target="_blank">

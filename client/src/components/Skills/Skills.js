@@ -22,11 +22,11 @@ const Skills = () => {
                 <TextWrapper>
                     <div>
                         <h2>Front End Development:</h2>
-                        <p>React(Javascript Library), Javascript, HTML5, CSS. </p>
+                        <p>React.js, Redux, HTML, CSS, JavaScript ES6</p>
                     </div>
                     <div>
                         <h2>Back End Development:</h2>
-                        <p>Node.js, Express.js, NoSQL database - (MongoDb).</p>
+                        <p>Node.js, Express, MongoDb.</p>
                     </div>
                     <div>
                         <h2>Developper Tools:</h2>
