@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
+import Message from './Message';
 
 
 
@@ -12,6 +13,10 @@ const Form = () => {
         message: ''
     })
     const [message, setMessage] = useState(null)
+    //timer for messagge.
+    let [timer, setTimer] = useState(false);
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (state.name !== '' && state.email !== '' && state.message !== '') {
@@ -27,6 +32,13 @@ const Form = () => {
                 let contactResponse = await response.json();
                 if (contactResponse.status === 200) {
                     setMessage(contactResponse.message)
+                    setState({
+                        ...state,
+                        name: '',
+                        email: '',
+                        message: ''
+                    })
+                    setTimer(true)
                 }
                 else {
                     return;
@@ -40,13 +52,14 @@ const Form = () => {
             console.log('please fill out all fields.')
         }
     }
-
+    console.log(state)
 
     return (
         <StyledForm onSubmit={handleSubmit}>
             <div>
                 <label id="name">Name</label>
                 <textarea
+                    value={state.name}
                     onChange={(e) => setState({
                         ...state,
                         name: e.target.value
@@ -57,6 +70,7 @@ const Form = () => {
             <div>
                 <label id="email">Email</label>
                 <textarea
+                    value={state.email}
                     onChange={(e) => setState({
                         ...state,
                         email: e.target.value
@@ -71,11 +85,12 @@ const Form = () => {
                         ...state,
                         message: e.target.value
                     })}
+                    value={state.message}
                     style={{ height: '15rem', resize: 'vertical' }}
                     id="message" type="text"></textarea>
             </div>
             <button type="submit">Submit</button>
-            {message && <div>{message}</div>}
+            {timer && <Message message={message} setTimer={setTimer} />}
         </StyledForm>
     )
 }
