@@ -8,15 +8,9 @@ import Burger from './Burger';
 
 const Navbar = () => {
     return (<Wrapper>
-
         {/* BURGER */}
         <Burger></Burger>
-
-
-
     </Wrapper>
-
-
     )
 }
 

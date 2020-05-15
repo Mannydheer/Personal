@@ -4,9 +4,16 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const nodemailer = require('nodemailer');
+const cors = require('cors');
 require('dotenv').config();
 
-const PORT = 4000;
+const port = process.env.PORT || 4000;
+
+var corsOptions = {
+    origin: 'https://mannydheer.com',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
 
 
 const transporter = nodemailer.createTransport({
@@ -54,15 +61,21 @@ app.use(function (req, res, next) {
     );
     next();
 })
+app.use(cors())
 app.use(morgan('tiny'))
 app.use(express.static('./server/assets'))
 app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: false }))
 app.use('/', express.static(__dirname + '/'))
 
-app.post('/submitInfo', handleMail)
+app.post('/submitInfo', cors(corsOptions), handleMail)
 
 
 
-
-    .listen(PORT, () => console.info(`Listening on port ${PORT}`));
+app.listen(port, function (error) {
+    if (error) {
+        console.error(error);
+    } else {
+        console.info(`==> 🌎  Listening on port ${port}.`);
+    }
+});

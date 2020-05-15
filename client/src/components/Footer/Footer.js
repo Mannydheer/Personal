@@ -45,6 +45,9 @@ h4 {
 h5 {
     font-size: 2rem;
 }
+@media screen and (max-width: 1000px) {
+   
+}
 `
 
 const DownwardArrow = styled(FaArrowDown)`
@@ -58,6 +61,10 @@ width: 100%;
     transition-duration: 0.3s;
     cursor: pointer;
 }
+
+
+
+
 `
 const CopyRight = styled(FaCopyright)`
 color: white;

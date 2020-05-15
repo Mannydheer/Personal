@@ -28,6 +28,11 @@ const GlobalStyles = createGlobalStyle`
   scroll-behavior: smooth;
 }
 
+html, body {
+  height: 100vh;
+  width: 100vw;
+}
+
   html,
   body,
   div,

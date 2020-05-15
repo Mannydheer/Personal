@@ -1,6 +1,5 @@
 import React from 'react';
 import Main from '../Main/Main'
-import Footer from '../Footer';
 import Contact from '../Contact';
 import Skills from '../Skills';
 
@@ -10,7 +9,6 @@ const Home = () => {
         <Main />
         <Skills />
         <Contact />
-        <Footer />
     </div>
 
 }

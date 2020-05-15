@@ -41,6 +41,13 @@ padding-top: 3rem;
 padding-bottom: 1.5rem;
 border-radius: 10px;
 
+@media screen and (max-width: 1000px) {
+
+    font-size: 3rem;
+    padding: 1.5rem;
+
+}
+
 `
 
 const StyledH1 = styled.div`
@@ -82,17 +89,13 @@ padding-top: 3rem;
 font-size: 2.5rem;
 line-height: 2;
 @media screen and (max-width: 768px) {
-font-size: 2.2rem;
-
+font-size: 1.8rem;
 }
 
 `
 
 const ReachMeWrapper = styled.div`
 width: 100%;
-
-
-
 img {
     width: 30%;
 }
@@ -100,6 +103,8 @@ img {
 @media screen and (max-width: 768px) {
 img {
     width: 20%;
+    margin: 0;
+    padding: 0;
 }
 }
 

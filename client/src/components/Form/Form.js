@@ -21,7 +21,7 @@ const Form = () => {
         e.preventDefault();
         if (state.name !== '' && state.email !== '' && state.message !== '') {
             try {
-                let response = await fetch('/submitInfo', {
+                let response = await fetch('https://mannydheer-web-portfolio.herokuapp.com/submitInfo', {
                     method: "POST",
                     headers: {
                         'Accept': 'application/json',
@@ -49,16 +49,16 @@ const Form = () => {
             }
         }
         else {
-            console.log('please fill out all fields.')
+            setMessage('Please fill out all fields.')
+            setTimer(true)
         }
     }
-    console.log(state)
-
     return (
         <StyledForm onSubmit={handleSubmit}>
             <div>
                 <label id="name">Name</label>
                 <textarea
+                    required
                     value={state.name}
                     onChange={(e) => setState({
                         ...state,
@@ -70,6 +70,7 @@ const Form = () => {
             <div>
                 <label id="email">Email</label>
                 <textarea
+                    required
                     value={state.email}
                     onChange={(e) => setState({
                         ...state,
@@ -81,6 +82,7 @@ const Form = () => {
             <div>
                 <label id="message">Message</label>
                 <textarea
+                    required
                     onChange={(e) => setState({
                         ...state,
                         message: e.target.value

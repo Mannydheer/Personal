@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { useHistory } from 'react-router-dom';
+import developper from '../../Images/developper.svg'
+
 
 const RightNav = ({ setOpen, open }) => {
 
@@ -32,7 +34,7 @@ const RightNav = ({ setOpen, open }) => {
                     </a>
                 </SocialMedia>
                 <Desc>
-                    <ProfileImg src='./Manny.jpeg'></ProfileImg>
+                    <ProfileImg src={developper}></ProfileImg>
                 </Desc>
 
             </Styledheader>
@@ -65,7 +67,7 @@ list-style: none;
 /* Media Query for right nav pop. */
 @media screen and (max-width: 768px) {
 display: block;
-background-color: rgba(0,0,0,0.4) !important;
+background-color: rgba(0,0,1,0.7) !important;
 position: fixed;
 transform: ${({ open }) => open ? 'translateX(0%)' : 'translateX(100%)'};
 top: 0;
@@ -81,8 +83,6 @@ li {
     top: 20vh;
     font-weight: 900;
 }
-
-
 }
 /*  */
 
@@ -92,7 +92,6 @@ li {
 a {
     color: white;
     text-decoration: none;
-
     &:after {
     content: '';
     display: block;
@@ -106,8 +105,6 @@ a {
     transition:.3s;
     }
 }
-
-
 `
 const Desc = styled.div`
 width: 40%;
@@ -116,7 +113,6 @@ display:flex;
 justify-content: center;
 align-items: center;
 `
-
 const SocialMedia = styled.div`
 display: flex;
 font-size: 5rem;
@@ -126,15 +122,13 @@ a {
     color: white;
 }
 @media screen and (max-width: 1000px) {
-    margin-top: 5rem;   
+    margin-top: 2rem;   
     width: 20%; 
  }
  @media screen and (max-width: 800px) {
-    margin-top: 5rem;   
+    margin-top: 2rem;   
     width: 30%; 
  }
-
-
 `
 const StyledGithub = styled(FaGithub)`
 &:hover {
@@ -176,16 +170,17 @@ flex-flow: column;
 }
 `
 const ProfileImg = styled.img`
-height: 40vh;
-border-radius: 25px;
-border: 4px white solid;
+height: 400px;
+width: 400px;
 
-@media screen and (max-width: 768px) {
-    height: 30vh;
-           
+@media screen and (max-width: 1000px) {
+height: 230px;
+width: 230px;       
  }
- @media screen and (max-width: 420px) {
-                  
+
+ @media screen and (max-width: 800px) {
+height: 230px;
+width: 230px;       
  }
 
 `
