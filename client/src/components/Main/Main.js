@@ -16,7 +16,16 @@ const Main = () => {
                 <Img src="./seeksport.png"></Img>
                 <a href='https://www.youtube.com/watch?v=aU5c4TsWLIk' target="_blank">View Demo</a>
                 <a href='https://github.com/Mannydheer/Finalproject' target="_blank">View Github</a>
-                <p>Developed as my final project during Concordia bootcamp program, built using MERN stack, Socket.Io, a fully responsiveness website application that allows for users to find nearby parks from an address in Quebec and then finding people to play sports with.</p>
+                <p>Developed as my final project during Concordia bootcamp program, a fully responsiveness website application that allows for users to find nearby parks from an address in Quebec and then finding people to play sports with.</p>
+                <p>MERN stack, React, Redux, Socket.Io, Node.js, MongoDb, Express, Styled Components, CSS.</p>
+
+            </div>
+            <div>
+                <h2>TECH 6 GEAR - E-Commerce</h2>
+                <Img src="./tech6.png"></Img>
+                <a href='https://www.youtube.com/watch?v=2YYnoIVh9Uo&t=2s' target="_blank">View Demo</a>
+                <a href='https://github.com/Mannydheer/project-m5-e-commerce' target="_blank">View Github</a>
+                <p>Developed as a team project during Concordia bootcamp program, a fully responsiveness website application where users can browse different items, add items to the cart and much more!</p>
                 <p>MERN stack, React, Redux, Node.js, MongoDb, Express, Styled Components, CSS.</p>
 
             </div>

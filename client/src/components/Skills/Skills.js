@@ -48,7 +48,6 @@ const Skills = () => {
 
     )
 }
-
 export default Skills;
 
 const AboutWrapper = styled.div`
