@@ -9,7 +9,7 @@ const Main = () => {
         <StyledH1>
             <h1 id="projectLink">My Recent Projects.</h1>
         </StyledH1>
-        <p style={{ fontSize: '2.5rem', fontWeight: 'bold' }}>Recent graduate from Concordia Bootcamps. Fell in love with programming and developped skills in React, Node.js, Javascript, HTML5,CSS and MongoDb.</p>
+        <p style={{ fontSize: '2.5rem', fontWeight: 'bold' }}>Recent graduate from Concordia Bootcamps. Fell in love with programming and developed skills in React, Node.js, Javascript, HTML5, CSS and MongoDb.</p>
         <StyledMain>
             <div>
                 <h2>Seek & Sport</h2>
@@ -18,7 +18,6 @@ const Main = () => {
                 <a href='https://github.com/Mannydheer/Finalproject' target="_blank">View Github</a>
                 <p>Developed as my final project during Concordia bootcamp program, a fully responsiveness website application that allows for users to find nearby parks from an address in Quebec and then finding people to play sports with.</p>
                 <p>MERN stack, React, Redux, Socket.Io, Node.js, MongoDb, Express, Styled Components, CSS.</p>
-
             </div>
             <div>
                 <h2>TECH 6 GEAR - E-Commerce</h2>
