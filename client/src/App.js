@@ -4,7 +4,6 @@ import Home from './components/Home/Home'
 import Navbar from './components/Navbar';
 import GlobalStyles from './components/GlobalStyles'
 import styled from 'styled-components';
-import Footer from './components/Footer'
 
 
 
@@ -23,7 +22,7 @@ function App() {
             <Home></Home>
           </Route>
         </Switch>
-        <Footer />
+
 
 
 

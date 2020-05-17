@@ -144,6 +144,8 @@ button {
 width: 100%;
 
 button {
+    margin-bottom: 1.1rem;
+    
     
 }
 }

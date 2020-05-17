@@ -32,7 +32,7 @@ export default Footer;
 
 const FooterWrapper = styled.footer`
 background-color: rgb(20,28,58);
-height: 40vh;
+
 
 h4, h5{
     color: white;
@@ -45,7 +45,8 @@ h4 {
 h5 {
     font-size: 2rem;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 768px) {
+
    
 }
 `

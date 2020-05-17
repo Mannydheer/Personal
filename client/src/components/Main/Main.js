@@ -66,7 +66,8 @@ export default Main;
 
 const StyledMain = styled.div`
 display: grid;
-grid-template-columns: auto auto;
+grid-template-columns: repeat(auto-fit, minmax(25vw, 1fr) );
+
     h2 {
         padding-top: 2rem;
         text-align: center;
@@ -91,7 +92,7 @@ grid-template-columns: auto auto;
             justify-content: center;
             text-decoration: none;
             border-radius: 25px;
-            font-size: 2rem;
+            font-size: 1.8rem;
             padding: 5px;
 
             &:hover {
@@ -140,23 +141,27 @@ border-radius: 10px;
 `
 
 const Img = styled.img`
-width:500px;
-height: 400px;
+width: 25vw;
+height: 350px;
 padding: 30px;
 &:hover {
     opacity: 0.8;
     transition-duration: 0.5s;
 }
 
-
+@media screen and (max-width: 1000px) {
+width:50vw;
+height: 350px;
+padding: 20px;
+}
 
 @media screen and (max-width: 768px) {
-width:320px;
+/* width:70vw; */
 height: 350px;
 padding: 20px;
 }
 @media screen and (max-width: 420px) {
-width:200px;
+/* width:50vw; */
 height: 200px;
 padding: 10px;
 
