@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
 import Message from './Message';
+import ReCaptcha from 'react-google-recaptcha';
+const axios = require('axios');
+
 
 
 
@@ -15,45 +18,62 @@ const Form = () => {
     const [message, setMessage] = useState(null)
     //timer for messagge.
     let [timer, setTimer] = useState(false);
+    const [robot, setRobot] = useState(null);
+    const onChange = (value) => {
+        setRobot(value)
+    }
+
+    console.log(robot, 'robot')
+
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (state.name !== '' && state.email !== '' && state.message !== '') {
-            try {
-                let response = await fetch('https://mannydheer-web-portfolio.herokuapp.com/submitInfo', {
-                    method: "POST",
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-type': 'application/json'
-                    },
-                    body: JSON.stringify(state)
-                })
-                let contactResponse = await response.json();
-                if (contactResponse.status === 200) {
-                    setMessage(contactResponse.message)
-                    setState({
-                        ...state,
-                        name: '',
-                        email: '',
-                        message: ''
+        if (robot !== null) {
+            if (state.name !== '' && state.email !== '' && state.message !== '') {
+                try {
+
+                    let response = await fetch('https://us-central1-mannydheer-65e48.cloudfunctions.net/handleMail', {
+                        method: "POST",
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-type': 'application/json'
+                        },
+                        body: JSON.stringify(state)
                     })
-                    setTimer(true)
+                    let contactResponse = await response.json();
+                    console.log(contactResponse)
+                    if (contactResponse.status === 200) {
+                        setMessage(contactResponse.message)
+                        setState({
+                            ...state,
+                            name: '',
+                            email: '',
+                            message: ''
+                        })
+                        setTimer(true)
+                    }
+                    else {
+                        return;
+                    }
                 }
-                else {
-                    return;
+                catch (err) {
+                    console.log(err, 'inside catch')
                 }
             }
-            catch (err) {
-                console.log(err, 'inside catch')
+            else {
+                setMessage('Please fill out all fields.')
+                setTimer(true)
             }
         }
         else {
-            setMessage('Please fill out all fields.')
+            setMessage("Please verify that you are not a robot.")
             setTimer(true)
         }
     }
     return (
+
+
         <StyledForm onSubmit={handleSubmit}>
             <div>
                 <label id="name">Name</label>
@@ -69,15 +89,19 @@ const Form = () => {
             </div>
             <div>
                 <label id="email">Email</label>
-                <textarea
-                    required
+                <input
                     value={state.email}
+                    required
                     onChange={(e) => setState({
                         ...state,
                         email: e.target.value
                     })}
                     style={{ resize: 'none' }}
-                    id="email" type="email"></textarea>
+                    id="email"
+                    type="email"
+                    label="Email Address"
+                    autoComplete="email"
+                ></input>
             </div>
             <div>
                 <label id="message">Message</label>
@@ -91,13 +115,28 @@ const Form = () => {
                     style={{ height: '15rem', resize: 'vertical' }}
                     id="message" type="text"></textarea>
             </div>
+
+            <ReCaptcha
+                style={{ display: "inline-block", width: '80%', margin: '0 auto' }}
+                onChange={onChange}
+                sitekey="6LfdcfgUAAAAAAoXX70NCs1EV7GoqezHL-Ew4_AU"
+            ></ReCaptcha>
+
+
             <button type="submit">Submit</button>
             {timer && <Message message={message} setTimer={setTimer} />}
+
         </StyledForm>
+
     )
 }
 
 export default Form;
+
+// const StyledReCaptcha = styled.div`
+
+
+// `
 
 const StyledForm = styled.form`
 display: flex;
@@ -111,6 +150,12 @@ div textarea  {
     font-family: 'Comfortaa', cursive;
     border: solid black 1px;
 }
+div input {
+    outline: none;
+    font-size: 2rem;
+    font-family: 'Comfortaa', cursive;
+    border: solid black 1px;
+}
 div label {
     text-align: center;
     font-size: 2rem;
@@ -118,6 +163,7 @@ div label {
 
 div {
     display: flex;
+    justify-content: center;
      flex-flow: wrap column;
 }
 
