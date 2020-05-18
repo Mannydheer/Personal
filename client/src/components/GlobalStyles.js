@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
 
   html {
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Comfortaa';
     font-size: 9px;
     
   
@@ -59,9 +59,7 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     line-height: 1.4;
     -webkit-font-smoothing: antialiased;
-    /* font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-      sans-serif; */
+
       
   }
 

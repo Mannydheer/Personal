@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
-import { useHistory } from 'react-router-dom';
 import developper from '../../Images/developper.svg'
 
 

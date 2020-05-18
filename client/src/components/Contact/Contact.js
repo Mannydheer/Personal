@@ -11,7 +11,9 @@ const Contact = () => {
             <ContactWrapper>
                 <ReachMeWrapper>
                     <ReachOut>Reach out!</ReachOut>
-                    <StyledText>If you'd like to get in touch to work on a project or have any questions, you can reach me by email!</StyledText>
+                    <StyledText>If you'd like to get in touch to work on a project or have any questions, you can reach me by<span> </span>
+                        <a href="mailto: mannydheer@gmail.com">email.</a>
+                    </StyledText>
                     <div style={{ display: 'flex', justifyContent: 'center' }}>
                         <img src={Email} alt="Email" />
                     </div>

@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import styled from 'styled-components';
 import Message from './Message';
 import ReCaptcha from 'react-google-recaptcha';
-const axios = require('axios');
 
 
 
 
 
+
+let handleMailFetch = "https://us-central1-mannydheer-65e48.cloudfunctions.net/handleMail";
+let handleTokenFetch = "https://us-central1-mannydheer-65e48.cloudfunctions.net/handleToken";
 const Form = () => {
 
     const [state, setState] = useState({
@@ -23,48 +25,75 @@ const Form = () => {
         setRobot(value)
     }
 
-    console.log(robot, 'robot')
-
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        //check if the user clicked on the robot.
         if (robot !== null) {
-            if (state.name !== '' && state.email !== '' && state.message !== '') {
-                try {
+            //contact google api to valid token.
 
-                    let response = await fetch('https://us-central1-mannydheer-65e48.cloudfunctions.net/handleMail', {
-                        method: "POST",
-                        headers: {
-                            'Accept': 'application/json',
-                            'Content-type': 'application/json'
-                        },
-                        body: JSON.stringify(state)
-                    })
-                    let contactResponse = await response.json();
-                    console.log(contactResponse)
-                    if (contactResponse.status === 200) {
-                        setMessage(contactResponse.message)
-                        setState({
-                            ...state,
-                            name: '',
-                            email: '',
-                            message: ''
-                        })
-                        setTimer(true)
+            try {
+                let tokenReponse = await fetch("https://us-central1-mannydheer-65e48.cloudfunctions.net/handleToken", {
+                    method: "POST",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-type': 'application/json'
+                    },
+                    body: JSON.stringify({ response: robot })
+                })
+                let tokenValidation = await tokenReponse.json();
+                //if token is valid.
+                if (tokenValidation.apiResponse.success) {
+                    //check if all the fields are filled...
+                    //if so, then send an email to backend.
+                    //-----------------------IF INPUT FEILDS ARE NOT EMPTY.---------------------
+                    if (state.name !== '' && state.email !== '' && state.message !== '') {
+                        try {
+                            let response = await fetch("https://us-central1-mannydheer-65e48.cloudfunctions.net/handleMail", {
+                                method: "POST",
+                                headers: {
+                                    'Accept': 'application/json',
+                                    'Content-type': 'application/json'
+                                },
+                                body: JSON.stringify(state)
+                            })
+                            let contactResponse = await response.json();
+                            //if success sending email.
+                            if (contactResponse.status === 200) {
+                                setMessage(contactResponse.message)
+                                setState({
+                                    ...state,
+                                    name: '',
+                                    email: '',
+                                    message: ''
+                                })
+                                setTimer(true)
+                            }
+                            else {
+                                setMessage('Oops... Something went wrong. Try refreshing the page.')
+                                setTimer(true)
+                            }
+                        }
+                        catch (err) {
+                            setMessage('Oops... Something went wrong. Try refreshing the page.')
+                            setTimer(true)
+                        }
                     }
                     else {
-                        return;
+                        setMessage('Please fill out all fields.')
+                        setTimer(true)
                     }
                 }
-                catch (err) {
-                    console.log(err, 'inside catch')
+                else {
+                    //token invalid error.
+                    setMessage('Oops... Something went wrong. Try refreshing the page.')
+                    setTimer(true)
                 }
             }
-            else {
-                setMessage('Please fill out all fields.')
-                setTimer(true)
+            catch (err) {
+                console.log(err)
             }
+            //-----------------------ROBOT KEY IS INVALID (did not click on checkbox).---------------------
         }
         else {
             setMessage("Please verify that you are not a robot.")
@@ -100,7 +129,6 @@ const Form = () => {
                     id="email"
                     type="email"
                     label="Email Address"
-                    autoComplete="email"
                 ></input>
             </div>
             <div>
@@ -115,12 +143,12 @@ const Form = () => {
                     style={{ height: '15rem', resize: 'vertical' }}
                     id="message" type="text"></textarea>
             </div>
-
-            <ReCaptcha
-                style={{ display: "inline-block", width: '80%', margin: '0 auto' }}
-                onChange={onChange}
-                sitekey="6LfdcfgUAAAAAAoXX70NCs1EV7GoqezHL-Ew4_AU"
-            ></ReCaptcha>
+            <div>
+                <StyledReCaptcha
+                    onChange={onChange}
+                    sitekey="6LfdcfgUAAAAAAoXX70NCs1EV7GoqezHL-Ew4_AU"
+                ></StyledReCaptcha>
+            </div>
 
 
             <button type="submit">Submit</button>
@@ -133,10 +161,15 @@ const Form = () => {
 
 export default Form;
 
-// const StyledReCaptcha = styled.div`
+const StyledReCaptcha = styled(ReCaptcha)`
+margin: 1rem auto;
 
+@media screen and (max-width: 768px) {
+width: 100%;
 
-// `
+}
+
+`
 
 const StyledForm = styled.form`
 display: flex;
@@ -147,13 +180,11 @@ margin: 0 auto;
 div textarea  {
     outline: none;
     font-size: 2rem;
-    font-family: 'Comfortaa', cursive;
     border: solid black 1px;
 }
 div input {
     outline: none;
     font-size: 2rem;
-    font-family: 'Comfortaa', cursive;
     border: solid black 1px;
 }
 div label {
@@ -187,7 +218,7 @@ button {
 
 
 @media screen and (max-width: 768px) {
-width: 100%;
+
 
 button {
     margin-bottom: 1.1rem;
